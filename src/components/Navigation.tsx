@@ -18,6 +18,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'HOME', to: 'home' },
+    { name: 'CODE-A-THON', to: 'code-a-thon' },
     { name: 'ABOUT', to: 'about' },
     { name: 'EVENTS', to: 'events' },
     { name: 'PROJECTS', to: 'projects' },

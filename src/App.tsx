@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from './components/Navigation';
 import Header from './components/Header';
+import CodeAThon from './components/CodeAThon';
 import About from './components/About';
 import Events from './components/Events';
 import Projects from './components/Projects';
@@ -15,6 +16,7 @@ function App() {
     <div className="bg-black min-h-screen">
       <Navigation />
       <Header />
+      <CodeAThon />
       <About />
       <Events />
       <Projects />
