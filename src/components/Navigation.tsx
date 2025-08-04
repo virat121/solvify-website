@@ -22,6 +22,7 @@ const Navigation = () => {
     { name: 'EVENTS', to: 'events' },
     { name: 'PROJECTS', to: 'projects' },
     { name: 'TEAM', to: 'team' },
+    { name: 'TIMELINE', to: 'timeline' },
     { name: 'GALLERY', to: 'gallery' },
     { name: 'CONTACT', to: 'contact' }
   ];

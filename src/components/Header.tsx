@@ -107,22 +107,40 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.3, duration: 0.6 }}
           >
-            <Link
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
-            >
-              <motion.button
-                className="bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-yellow-300 transition-all duration-300 shadow-2xl hover:shadow-yellow-400/25 inline-flex items-center space-x-2"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={-80}
+                duration={500}
               >
-                <span>GO TO PROJECTS</span>
-                <ArrowRight size={20} />
-              </motion.button>
-            </Link>
+                <motion.button
+                  className="bg-yellow-400 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-yellow-300 transition-all duration-300 shadow-2xl hover:shadow-yellow-400/25 inline-flex items-center space-x-2"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>GO TO PROJECTS</span>
+                  <ArrowRight size={20} />
+                </motion.button>
+              </Link>
+              <Link
+                to="timeline"
+                spy={true}
+                smooth={true}
+                offset={-80}
+                duration={500}
+              >
+                <motion.button
+                  className="bg-white/10 border border-yellow-400/50 text-yellow-400 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-yellow-400/20 hover:border-yellow-400 transition-all duration-300 backdrop-blur-sm inline-flex items-center space-x-2"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>VIEW TIMELINE</span>
+                  <ArrowRight size={20} />
+                </motion.button>
+              </Link>
+            </div>
           </motion.div>
 
           {/* Stats - Responsive grid with proper spacing */}

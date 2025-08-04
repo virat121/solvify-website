@@ -322,27 +322,37 @@ const Team = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ y: -10, scale: 1.02 }}
+                    whileHover={{ y: -15, scale: 1.05, rotateY: 10 }}
+                    style={{ transformStyle: 'preserve-3d' }}
                   >
                     {/* Profile Image */}
                     <div className="relative mb-6">
-                      <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden ring-4 ring-yellow-400/20 group-hover:ring-yellow-400/40 transition-all duration-300">
+                      <motion.div 
+                        className="w-24 h-24 mx-auto rounded-2xl overflow-hidden ring-4 ring-yellow-400/20 group-hover:ring-yellow-400/40 transition-all duration-300"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                      >
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500"
                         />
-                      </div>
-                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black text-xs px-3 py-1 rounded-full font-bold">
+                      </motion.div>
+                      <motion.div 
+                        className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black text-xs px-3 py-1 rounded-full font-bold"
+                        whileHover={{ scale: 1.1, y: -2 }}
+                      >
                         {member.role}
-                      </div>
+                      </motion.div>
                     </div>
 
                     {/* Member Info */}
                     <div className="text-center mb-4">
-                      <h3 className="text-white text-xl font-bold mb-1 group-hover:text-yellow-400 transition-colors duration-300">
+                      <motion.h3 
+                        className="text-white text-xl font-bold mb-1 group-hover:text-yellow-400 transition-colors duration-300"
+                        whileHover={{ scale: 1.05 }}
+                      >
                         {member.name}
-                      </h3>
+                      </motion.h3>
                       <p className="text-gray-400 text-sm mb-2">{member.department}</p>
                       <p className="text-gray-300 text-sm leading-relaxed">
                         {member.bio}
@@ -352,45 +362,55 @@ const Team = () => {
                     {/* Skills */}
                     <div className="flex flex-wrap gap-1 mb-4 justify-center">
                       {member.skills.slice(0, 3).map((skill, skillIndex) => (
-                        <span
+                        <motion.span
                           key={skillIndex}
                           className="px-2 py-1 bg-gray-800 text-gray-300 rounded-lg text-xs group-hover:bg-gray-700 transition-colors duration-300"
+                          whileHover={{ scale: 1.1, backgroundColor: 'rgba(250, 204, 21, 0.2)' }}
                         >
                           {skill}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
 
                     {/* Stats */}
-                    <div className="flex justify-between text-sm text-gray-400 mb-4">
+                    <motion.div 
+                      className="flex justify-between text-sm text-gray-400 mb-4"
+                      whileHover={{ scale: 1.05 }}
+                    >
                       <span>{member.projects} projects</span>
                       <span>{member.contributions} contributions</span>
-                    </div>
+                    </motion.div>
 
                     {/* Social Links */}
                     <div className="flex justify-center space-x-3">
-                      <a
+                      <motion.a
                         href={member.social.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 hover:text-yellow-400 transition-all duration-300"
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <Github size={16} />
-                      </a>
-                      <a
+                      </motion.a>
+                      <motion.a
                         href={member.social.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 hover:text-yellow-400 transition-all duration-300"
+                        whileHover={{ scale: 1.2, rotate: -10 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <Linkedin size={16} />
-                      </a>
-                      <a
+                      </motion.a>
+                      <motion.a
                         href={member.social.email}
                         className="p-2 bg-gray-800 text-gray-400 rounded-lg hover:bg-gray-700 hover:text-yellow-400 transition-all duration-300"
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        whileTap={{ scale: 0.9 }}
                       >
                         <Mail size={16} />
-                      </a>
+                      </motion.a>
                     </div>
                   </motion.div>
                 ))}

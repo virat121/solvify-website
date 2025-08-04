@@ -6,6 +6,7 @@ import Events from './components/Events';
 import Projects from './components/Projects';
 import Team from './components/Team';
 import Founder from './components/Founder';
+import Timeline from './components/Timeline';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 
@@ -19,6 +20,7 @@ function App() {
       <Projects />
       <Team />
       <Founder />
+      <Timeline />
       <Gallery />
       <Footer />
     </div>

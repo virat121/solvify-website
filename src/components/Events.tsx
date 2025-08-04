@@ -210,37 +210,55 @@ const Events = () => {
               whileHover={{ y: -5, scale: 1.02 }}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+              whileHover={{ scale: 1.05, rotateY: 5 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               <div className="relative h-48 overflow-hidden">
                 <img
                   src={event.image}
                   alt={event.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
+                className="w-full h-full object-cover group-hover:scale-115 transition-transform duration-700"
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className={`absolute top-3 left-3 px-2 py-1 rounded-full text-white text-xs font-medium ${getStatusColor(event.status)}`}>
                   {event.status}
-                </div>
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                whileHover={{ backdropFilter: 'blur(2px)' }}
+              >
               </div>
               <div className="p-6">
-                <h4 className="text-white text-xl font-bold mb-2 group-hover:text-yellow-400 transition-colors duration-300">
+                    <motion.span 
+                      className="px-3 py-1 bg-yellow-400 text-black text-xs font-bold rounded-full"
+                      whileHover={{ scale: 1.1 }}
+                    >
                   {event.title}
-                </h4>
+                    </motion.span>
                 <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                  {event.description}
+                  <motion.h3 
+                    className="text-white text-xl font-bold mb-2"
+                    whileHover={{ x: 5 }}
+                  >
+                    {image.title}
+                  </motion.h3>
                 </p>
                 <div className="flex items-center justify-between text-sm text-gray-500">
                   <span>{event.date}</span>
                   <span>{event.participants.split(' ')[0]} people</span>
                 </div>
-              </div>
+              <motion.div 
+                className="absolute inset-0 border-2 border-transparent group-hover:border-yellow-400/50 rounded-2xl transition-colors duration-300"
+                whileHover={{ 
+                  boxShadow: '0 0 30px rgba(250, 204, 21, 0.3)',
+                  borderColor: 'rgba(250, 204, 21, 0.8)'
+                }}
+              />
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
   );
-};
+              </motion.div>
 
 export default Events;

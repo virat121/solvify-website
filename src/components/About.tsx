@@ -80,12 +80,17 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
+              whileHover={{ y: -10, scale: 1.05, rotateY: 5 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-yellow-400/20 rounded-2xl group-hover:bg-yellow-400/30 transition-colors duration-300">
+                <motion.div 
+                  className="inline-flex items-center justify-center w-14 h-14 bg-yellow-400/20 rounded-2xl group-hover:bg-yellow-400/30 transition-colors duration-300"
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.6 }}
+                >
                   <feature.icon className="w-7 h-7 text-yellow-400" />
-                </div>
+                </motion.div>
               </div>
               <h3 className="text-white text-xl font-bold mb-3 group-hover:text-yellow-400 transition-colors duration-300">
                 {feature.title}
@@ -93,6 +98,13 @@ const About = () => {
               <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                 {feature.description}
               </p>
+              
+              {/* Hover glow effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                initial={{ scale: 0.8 }}
+                whileHover={{ scale: 1 }}
+              />
             </motion.div>
           ))}
         </div>

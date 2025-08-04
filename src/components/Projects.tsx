@@ -151,15 +151,20 @@ const Projects = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ y: -15, scale: 1.03, rotateX: 5 }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Project Header */}
               <div className="p-6 pb-4">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-yellow-400/20 rounded-lg group-hover:bg-yellow-400/30 transition-colors duration-300">
+                    <motion.div 
+                      className="p-2 bg-yellow-400/20 rounded-lg group-hover:bg-yellow-400/30 transition-colors duration-300"
+                      whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <project.icon className="w-6 h-6 text-yellow-400" />
-                    </div>
+                    </motion.div>
                     <div>
                       <h3 className="text-white text-xl font-bold group-hover:text-yellow-400 transition-colors duration-300">
                         {project.title}
@@ -169,10 +174,13 @@ const Projects = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-1 text-gray-400">
+                  <motion.div 
+                    className="flex items-center space-x-1 text-gray-400"
+                    whileHover={{ scale: 1.1, color: '#facc15' }}
+                  >
                     <Star className="w-4 h-4" />
                     <span className="text-sm">{project.stars}</span>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <p className="text-gray-300 leading-relaxed mb-4 group-hover:text-gray-200 transition-colors duration-300">
